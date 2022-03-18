@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Books Store Simple App</h2>
+    </div>
+    <div class="card-body">
+        {{#if books}}
+        <ul class="list-group">
+            {{#each books}}
+            <li class="list-group-item d-flex justify-content-between">
+                {{title}} |
+                {{author}} |
+                {{year}}
+                <a href="/delete/{{@key}}" class="btn btn-danger">Delete</a>
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <p>Aun no hay libros</p>
+        {{/if}}
+        <form action="/post-book" method="post">
+            <hr>
+            <label for="title">Titulo del Libro</label>
+            <input type="text" name="title" id="title" class="form-control">
+            <label for="author">Autor</label>
+            <input type="text" name="author" id="author" class="form-control">
+            <label for="year">Año</label>
+            <input type="text" name="year" id="year" class="form-control">
+            <hr>
+            <button type="submit" class="btn btn-block btn-primary">Agregar</button>
+        </form>
+    </div>
+</div>
